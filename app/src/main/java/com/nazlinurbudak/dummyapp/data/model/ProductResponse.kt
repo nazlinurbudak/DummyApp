@@ -3,6 +3,8 @@ package com.nazlinurbudak.dummyapp.data.model
 import com.google.gson.annotations.SerializedName
 
 data class ProductResponse(
-    @SerializedName("results")
+    @SerializedName("products")
     val products: List<Product>
+
+
 )

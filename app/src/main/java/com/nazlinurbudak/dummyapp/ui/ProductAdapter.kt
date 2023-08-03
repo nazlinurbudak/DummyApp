@@ -1,5 +1,6 @@
 package com.nazlinurbudak.dummyapp.ui
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +9,7 @@ import com.nazlinurbudak.dummyapp.data.model.Product
 import com.nazlinurbudak.dummyapp.databinding.ProductItemBinding
 
 class ProductAdapter(
-    private val products: List<Product>
+    private var products: List<Product>
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     class ProductViewHolder(private val binding: ProductItemBinding) :
@@ -33,6 +34,13 @@ class ProductAdapter(
                 false
             )
         return ProductViewHolder(binding)
+
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateData(product: List<Product>) {
+        this.products = product
+        notifyDataSetChanged()
 
     }
 

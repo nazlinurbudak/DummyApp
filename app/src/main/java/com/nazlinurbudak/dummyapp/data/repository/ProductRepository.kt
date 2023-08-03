@@ -4,11 +4,9 @@ import com.nazlinurbudak.dummyapp.data.api.ProductApiService
 import com.nazlinurbudak.dummyapp.data.model.Product
 
 class ProductRepository() {
-    private val productApiService: ProductApiService = ProductApiService()
-
-     fun getProducts(): List<Product> {
+     suspend fun getProducts(): List<Product> {
         return try {
-            val response = productApiService.api.getProducts()
+            val response = ProductApiService.api().getProducts()
             if (response.isSuccessful) {
                 val productResponse = response.body()
                 productResponse?.products ?: emptyList()

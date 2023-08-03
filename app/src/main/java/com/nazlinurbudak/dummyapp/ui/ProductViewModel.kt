@@ -7,9 +7,7 @@ import com.nazlinurbudak.dummyapp.data.model.Product
 import com.nazlinurbudak.dummyapp.data.repository.ProductRepository
 import kotlinx.coroutines.launch
 
-class ProductViewModel : ViewModel() {
-
-    private val productRepository = ProductRepository()
+class ProductViewModel(private val productRepository: ProductRepository) : ViewModel() {
 
     var productList = MutableLiveData<List<Product>>()
 
@@ -21,6 +19,7 @@ class ProductViewModel : ViewModel() {
         viewModelScope.launch {
             val products = productRepository.getProducts()
             productList.value = products
+            println(products)
         }
     }
 
