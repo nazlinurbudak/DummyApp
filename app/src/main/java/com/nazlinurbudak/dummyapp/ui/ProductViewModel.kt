@@ -1,5 +1,6 @@
 package com.nazlinurbudak.dummyapp.ui
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,9 +16,12 @@ class ProductViewModel(private val productRepository: ProductRepository) : ViewM
         getProducts()
     }
 
+    var a = "Java"
+
     fun getProducts() {
         viewModelScope.launch {
             val products = productRepository.getProducts()
+            Log.d("aasdad", "getProducts: asdad")
             productList.value = products
             println(products)
         }

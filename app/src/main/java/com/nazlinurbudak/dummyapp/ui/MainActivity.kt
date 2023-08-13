@@ -1,6 +1,7 @@
 package com.nazlinurbudak.dummyapp.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,10 +20,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val productRepository = ProductRepository()
-        viewModel = ViewModelProvider(this, ViewModelFactory(productRepository))[ProductViewModel::class.java]
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(productRepository)
+        )[ProductViewModel::class.java]
+
+        //Toast.makeText("")
 
 
         binding.productListRecyclerView.layoutManager = LinearLayoutManager(this)
+
 
         binding.productListRecyclerView.adapter = adapter
 

@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    jar {
+        manifest {
+            attributes('Lint-Registry-v2':'com.nazlinurbudak.checker.MyIssueRegistry')
+        }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.21" // Kotlin standard kütüphanesi
+    compileOnly("com.android.tools.lint:lint-api:31.1.0") // Lint API
+    testImplementation("com.android.tools.lint:lint-tests:31.1.0") // Lint testleri
+    compileOnly("com.android.tools.lint:lint-checks:31.1.0")
+}

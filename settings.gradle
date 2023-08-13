@@ -13,4 +13,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "DummyApp"
-include ':app'
+include(":app")
+include(":checker")
+
